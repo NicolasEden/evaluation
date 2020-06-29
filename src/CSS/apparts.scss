@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    background-color: #f6f6f6;
+    p {
+        text-align: center;
+    }
+    div.all {
+        div.header {
+            margin-top: 30px;
+            div.title {
+                display: flex;
+                justify-content: center;
+                h1 {
+                    font-size: 45px;
+                    color: $text-title;
+                    font-family: "Raleway", sans-serif;
+                    font-weight: 300;
+                    span {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        div.spacer {
+            display: flex;
+            justify-content: center;
+        }
+        div.subtitle {
+            text-align: center;
+            p {
+                width: 536px;
+                margin: 30px auto 50px auto;
+                font-family: "Playfair Display", sans-serif;
+                font-size: 16px;
+                color: $text-subtitle;
+            }
+        }
+    }
+    div.apparts {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: 20px auto 0px auto;
+        img {
+            user-select: none;
+        }
+        div.contain {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            div.content {
+                transition: 0.6s;
+                background-color: $card-background;
+                border: 1px solid #e6e6e6;
+                margin: 0px 0px 30px 0px;
+                div.middle {
+                    div.street {
+                        p {
+                            font-weight: 600;
+                            margin: 15px 0px 0px 0px;
+                            font-family: "Raleway", sans-serif;
+                            color: $text-title;
+                            font-size: 22px;
+                        }
+                    }
+                    div.city {
+                        p {
+                            margin: 5px 0px 0px 0px;
+                            font-family: "Playfair Display", sans-serif;
+                            color: $text-subtitle;
+                            font-weight: 400;
+                            font-size: 15px;
+                        }
+                    }
+                    div.price {
+                        p {
+                            margin: 15px 0px 25px 0px;
+                            font-family: "Lato";
+                            color: #e2574c;
+                            font-weight: 400;
+                            font-size: 16px;
+                        }
+                    }
+                }
+                div.bottom {
+                    border-top: 1px solid #e6e6e6;
+                    div.text {
+                        width: 80%;
+                        display: flex;
+                        justify-content: space-around;
+                        margin: 12px auto 12px auto;
+                        p {
+                            color: $text-subtitle;
+                            margin: 0px;
+                            font-family: "Lato";
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+            div.content:hover {
+                transform: scale(1.05)
+            }
+        }
+    }
+    div.error {
+        display: flex;
+        justify-content: center;
+    }
+    div.footer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 35px;
+        div.contain {
+            width: 55%;
+            display: flex;
+            justify-content: space-between;
+            button {
+                color: white;
+                background-color: #e2574c;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                height: 35px;
+                width: 35px;
+                text-decoration:none;
+            }
+        }
+    }
+    div.hide {
+        visibility: hidden;
+    }
+}
