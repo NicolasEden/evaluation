@@ -1,16 +1,10 @@
 import React from 'react';
 import Line from './Assets/line.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Card from './card';
+import Save from './saved';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {
-    faArrowRight,
-    faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons';
 class Appartements extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount(){
         AOS.init({
             duration : 2000
@@ -31,12 +25,12 @@ class Appartements extends React.Component {
                                 <li>Home</li>
                                 <li>The Crow</li>
                                 <li>Tutoriel</li>
-                                <li>Blog</li>
+                                <li><a href="/saved">Saved Cards</a></li>
                             </ul>
                         </div>
                     </div>
                     <div className="logo">
-                        <img src="https://i.imgur.com/OosBQlR.png"></img>
+                        <img src="https://i.imgur.com/OosBQlR.png" alt="logo"></img>
                     </div>
                     <div className="contain">
                         <div className="element">
@@ -49,7 +43,7 @@ class Appartements extends React.Component {
                             <p>Tutoriel</p>
                         </div>
                         <div className="element">
-                            <p>Blog</p>
+                            <p><a href="/saved">Saved Cards</a></p>
                         </div>
                     </div>
                 </div>
@@ -67,31 +61,7 @@ class Appartements extends React.Component {
                 <div className="apparts">
                     <div className="contain">
                         {webService.content.map((item, i) => (
-                            <div className="content" data-aos='flip-right'>
-                                <div className="top">
-                                    <img src={item.img} alt="Image d'un appartement"/>
-                                </div>
-                                <div className="middle">
-                                    <div className="street">
-                                        <p>{item.address}</p>
-                                    </div>
-                                    <div className="city">
-                                        <p>{item.city} / {item.state}</p>
-                                    </div>
-                                    <div className="price">
-                                        <p>{item.dollar} $</p>
-                                    </div>
-                                </div>
-                                <div className="bottom">
-                                    <div className="text">
-                                        <p>{item.squareFit} m²</p>
-                                        <p>•</p>
-                                        <p>{item.nbBathRoom} {plural(item.nbBathRoom, "Bain")}</p>
-                                        <p>•</p>
-                                        <p>{item.nbBedRoom} {plural(item.nbBedRoom, "Chambre")}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <Card info={item} />
                         ))}
                     </div>
                 </div>
@@ -104,19 +74,3 @@ class Appartements extends React.Component {
 }
 
 export default Appartements;
-
-
-function plural(nb, text) {
-    if (nb > 1) return text+="s"
-    else return text
-}
-function next() {
-    let path = window.location.pathname.split(`/apparts/`).join(``)
-    path = new Number(path+1)
-    window.location.pathname = `/apparts/${path}`
-}
-function previous() {
-    let path = window.location.pathname.split(`/apparts/`).join(``)
-    path = new Number(path-1)
-    window.location.pathname = `/apparts/${path}`
-}
