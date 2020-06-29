@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Bridge from './bridge';
+import Save from './saved';
 import * as serviceWorker from './serviceWorker';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 ReactDOM.render(
@@ -18,6 +18,9 @@ ReactDOM.render(
             </Route>
             <Route exact path="/">
               <h1><a href="/apparts">Salut, clique sur moi pour être au bon endroit !</a></h1>
+            </Route>
+            <Route exact path="/saved">
+                <Save />
             </Route>
           </Switch>
       </Router>

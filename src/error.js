@@ -1,9 +1,6 @@
 import React from 'react';
 import './CSS/light.scss'
 class Error extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="error">
