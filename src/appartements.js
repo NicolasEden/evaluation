@@ -56,7 +56,7 @@ class Appartements extends React.Component {
                     </div>
                 </div>
                 <div className="footer">
-                        {arrow()}
+                    <button><a href='/apparts/all'>ALL PROPERTIES</a></button>
                 </div>
             </div>
         );
@@ -69,34 +69,6 @@ export default Appartements;
 function plural(nb, text) {
     if (nb > 1) return text+="s"
     else return text
-}
-function arrow() {
-    let path = window.location.pathname.split(`/apparts/`).join(``)
-    path = new Number(path+1)
-    console.log(`Do arrow()`)
-    if (path == 1) {
-        return (
-            <div className="contain">
-                <div className="previous hide">
-                    <button onClick={() => {previous()}}><FontAwesomeIcon className="Icon" icon={faArrowLeft} /></button>
-                </div>
-                <div className="next">
-                    <button onClick={() => {next()}}><FontAwesomeIcon className="Icon" icon={faArrowRight} /></button>
-                </div>
-            </div>
-        )
-    } else {
-        return (
-            <div className="contain">
-                <div className="previous">
-                    <button onClick={() => {previous()}}><FontAwesomeIcon className="Icon" icon={faArrowLeft} /></button>
-                </div>
-                <div className="next hide">
-                    <button onClick={() => {next()}}><FontAwesomeIcon className="Icon" icon={faArrowRight} /></button>
-                </div>
-            </div>
-        )
-    }
 }
 function next() {
     let path = window.location.pathname.split(`/apparts/`).join(``)

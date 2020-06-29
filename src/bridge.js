@@ -13,23 +13,43 @@ class Bridge extends React.Component {
         if (window.location.pathname === "/apparts") {
             window.location.href = "/apparts/0"
         }
-        fetch(`http://92.222.69.104/appartement/all?size=6&page=${window.location.pathname.split(`/apparts/`).join(``)}`).then(res => res.json()).then(async(result) => {
-            if (result) {
-                if (result.content.length > 1) {
-                    this.setState({
-                        "apparts": result
-                    })
+        if (window.location.pathname === "/apparts/all") {
+            fetch(`http://92.222.69.104/appartement/all?size=80&page=0`).then(res => res.json()).then(async(result) => {
+                if (result) {
+                    if (result.content.length > 1) {
+                        this.setState({
+                            "apparts": result
+                        })
+                    } else {
+                        this.setState({
+                            "apparts": "too far"
+                        })
+                    }
                 } else {
                     this.setState({
-                        "apparts": "too far"
+                        "apparts": "loading"
                     })
                 }
-            } else {
-                this.setState({
-                    "apparts": "loading"
-                })
-            }
-        })
+            })
+        } else {
+            fetch(`http://92.222.69.104/appartement/all?size=6&page=${window.location.pathname.split(`/apparts/`).join(``)}`).then(res => res.json()).then(async(result) => {
+                if (result) {
+                    if (result.content.length > 1) {
+                        this.setState({
+                            "apparts": result
+                        })
+                    } else {
+                        this.setState({
+                            "apparts": "too far"
+                        })
+                    }
+                } else {
+                    this.setState({
+                        "apparts": "loading"
+                    })
+                }
+            })
+        }
     }
     render() {
         if (this.state.apparts === null) {
