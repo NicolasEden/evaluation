@@ -59,6 +59,7 @@ class Bridge extends React.Component {
         } else {
             if (this.state.apparts !== "too far") {
                 return (
+                    //QUAND C EST COMME CA L'operateur "..." existe pour destructurer l'objet mais on l'a pas vu en classe
                     <Appartements info={this.state.apparts}/>
                 );
             } else if (this.state.apparts === "loading") {

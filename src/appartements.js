@@ -1,6 +1,8 @@
 import React from 'react';
 import Line from './Assets/line.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import {
     faArrowRight,
     faArrowLeft,
@@ -9,10 +11,48 @@ class Appartements extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount(){
+        AOS.init({
+            duration : 2000
+        })
+      }
     render() {
         var webService = this.props.info
         return (
             <div className="all">
+                <div className="navbar">
+                    <div className="burger">
+                        <div className="input">
+                            <input type="checkbox" />
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <ul>
+                                <li>Home</li>
+                                <li>The Crow</li>
+                                <li>Tutoriel</li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="logo">
+                        <img src="https://i.imgur.com/OosBQlR.png"></img>
+                    </div>
+                    <div className="contain">
+                        <div className="element">
+                            <p>Home</p>
+                        </div>
+                        <div className="element">
+                            <p>The crow</p>
+                        </div>
+                        <div className="element">
+                            <p>Tutoriel</p>
+                        </div>
+                        <div className="element">
+                            <p>Blog</p>
+                        </div>
+                    </div>
+                </div>
                 <div className="header">
                     <div className="title">
                         <h1>Featured <span>Properties</span></h1>
@@ -27,7 +67,7 @@ class Appartements extends React.Component {
                 <div className="apparts">
                     <div className="contain">
                         {webService.content.map((item, i) => (
-                            <div className="content">
+                            <div className="content" data-aos='flip-right'>
                                 <div className="top">
                                     <img src={item.img} alt="Image d'un appartement"/>
                                 </div>

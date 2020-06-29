@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+$background: #f6f6f6;
+$text-title: #3c3c3c;
+$text-subtitle: #79798d;
+$card-background: #ffffff;
+
 body {
     background-color: #f6f6f6;
     p {
@@ -57,6 +62,7 @@ body {
             div.content {
                 width: 362px;
                 min-height: 412px;
+                z-index: 1;
                 transition: 0.6s;
                 background-color: $card-background;
                 border: 1px solid #e6e6e6;
@@ -108,7 +114,8 @@ body {
                 }
             }
             div.content:hover {
-                transform: scale(1.05)
+                z-index: 1;
+                transform: scale(1.1)
             }
         }
     }
@@ -137,5 +144,138 @@ body {
     }
     div.hide {
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    div.navbar {
+        display: flex;
+        div.burger {
+            display: block;
+        }
+        div.input {
+            margin: 25px 25px 25px 15px;
+        }
+        input {
+            margin: 10px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 5;
+            -webkit-touch-callout: none;
+        }
+        span {
+            margin: 10px 0px 0px 15px;
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+            background: #e3267d;
+            border-radius: 3px;
+            z-index: 4;
+            transform-origin: 4px 0px;
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                      background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                      opacity 0.55s ease;
+        }
+        span:nth-last-child(3) {
+            background: #873d82;
+        }
+        span:nth-last-child(2) {
+            background: #22b1c3;
+        }
+        input:checked ~ span{
+            opacity: 1;
+            transform: rotate(45deg) translate(-0px, -5px);
+            background: #232323;
+        }
+        input:checked ~ span:nth-last-child(3){
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+        input:checked ~ span:nth-last-child(2) {
+            transform: rotate(-45deg) translate(10px, -10px);
+        }
+        ul{
+            border-radius: 0px 10px 10px 0px;
+            position: absolute;
+            width: 300px;
+            margin: -100px 0 0 -50px;
+            padding: 50px;
+            padding-top: 125px;
+            background: #ededed;
+            list-style-type: none;
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            z-index: 3;
+        }
+        ul li {
+            z-index: 1;
+            user-select: none;
+            word-wrap: break-word;
+            padding: 20px 0;
+            font-size: 22px;
+            font-family: "Lato";
+        }
+        input:checked ~ ul {
+          transform: none;
+        }
+        div.logo {
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            img {
+                height: 120px;
+            }
+        }
+        div.contain {
+            display: none
+        }
+        div.element {
+            display: none
+        }
+    }
+}
+
+@media screen and (min-width: 970px) {
+    div.navbar {
+        div.burger {
+            display: none;
+        }
+        height: 80px;
+        border-bottom: 1px SOLID black;
+        box-shadow: 0 4px 2px -2px gray;
+        display: flex;
+        div.logo {
+            width: 20%;
+            img {
+                height: 80px;
+            }
+        }
+        div.contain {
+            display: flex;
+            width: 80%;
+            margin: auto 0px auto 20%;
+            justify-content: space-around;
+            font-size: 25px;
+            font-family: "Lato";
+            text-transform: uppercase;
+            user-select: none;
+            div.element {
+                padding: 0px 25px 0px 25px;
+                transition: 0.6s;
+            }
+        }
+        div.element:hover {
+            background-color: #E8E8E8
+        }
     }
 }
